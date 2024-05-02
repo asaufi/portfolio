@@ -18,7 +18,7 @@ const LandingSection = () => (
     <VStack spacing={4} textAlign="center" color="white">
       {/* Avatar component */}
 
-      <Avatar size="xl" name="Anas" src="https://i.pravatar.cc/150?img=26" />
+      <Avatar size="xl" name="Anas" src="images/profile.jpg" />
 
     <Heading>
       {greeting}

@@ -6,7 +6,7 @@ import {
   faLinkedin,
   
 } from "@fortawesome/free-brands-svg-icons";
-import { Box, HStack, IconButton, Link } from "@chakra-ui/react";
+import { Box, HStack, IconButton, Link, useBreakpointValue } from "@chakra-ui/react";
 import { Link as ScrollLink } from "react-scroll";
 
 
@@ -28,6 +28,8 @@ const socials = [
 ];
 
 const Header = () => {
+  const navDisplay = useBreakpointValue({ base: "none", md: "flex" });
+
   const handleClick = (anchor) => () => {
     const id = `${anchor}-section`;
     const element = document.getElementById(id);
@@ -51,10 +53,11 @@ const Header = () => {
       transitionDuration=".3s"
       transitionTimingFunction="ease-in-out"
       backgroundColor="#18181b"
+      zIndex="999" // Ensure header is above other content
     >
       <Box color="white" maxWidth="1280px" margin="0 auto">
         <HStack
-          px={16}
+          px={4}
           py={4}
           justifyContent="space-between"
           alignItems="center"
@@ -69,7 +72,7 @@ const Header = () => {
                 aria-label={social.icon}
                 icon={<FontAwesomeIcon icon={social.icon}/>}
                 variant="ghost"
-                size="lg"
+                size="sm"
                 color="white"
                 />
             </Link>)

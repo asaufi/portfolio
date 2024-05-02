@@ -41,7 +41,11 @@ const Card = ({ title, description, imageSrc }) => {
       {/* Arrow Icon */}
       <HStack mt={4} spacing={2}>
         <FontAwesomeIcon icon={faArrowRight} />
-        <Button onClick={handleClick}>{isExpanded ? "Show Less" : "Learn More"}</Button>
+        <Button onClick={handleClick}  
+                backgroundColor={isExpanded ? "green.500" : "blue.500"} 
+                color="white" >
+                  {isExpanded ? "Show Less" : "Learn More"}
+        </Button>
       </HStack>
     </VStack>
   );
