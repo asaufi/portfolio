@@ -35,16 +35,27 @@ const Card = ({ title, description, imageSrc }) => {
         transition={{ duration: 0.3 }}
         style={{ overflow: "hidden", width: "100%" }}
       >
-        <Text mt={2}>{description}</Text>
+        <VStack mt={2} spacing={1} align="flex-start">
+          {Array.isArray(description)
+            ? description.map((item, index) => (
+                <HStack key={index} spacing={2}>
+                  <Image src={item.logo} alt={item.text} boxSize="20px" />
+                  <Text>{item.text}</Text>
+                </HStack>
+              ))
+            : <Text>{description}</Text>}
+        </VStack>
       </motion.div>
 
       {/* Arrow Icon */}
       <HStack mt={4} spacing={2}>
         <FontAwesomeIcon icon={faArrowRight} />
-        <Button onClick={handleClick}  
-                backgroundColor={isExpanded ? "green.500" : "blue.500"} 
-                color="white" >
-                  {isExpanded ? "Show Less" : "Learn More"}
+        <Button
+          onClick={handleClick}
+          backgroundColor={isExpanded ? "green.500" : "blue.500"}
+          color="white"
+        >
+          {isExpanded ? "Show Less" : "Learn More"}
         </Button>
       </HStack>
     </VStack>
