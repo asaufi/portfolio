@@ -22,7 +22,7 @@ const socials = [
   },
   {
     icon: faLinkedin,
-    url: "https://www.linkedin.com/in/anas-saufi-013091194/",
+    url: "https://www.linkedin.com/in/anas-saufi/",
   },
   
 ];
@@ -81,8 +81,8 @@ const Header = () => {
           </nav>
           <nav>
             <HStack spacing={8}>
-            <a href="/#projects-section" onClick={()=>handleClick("projects")}>Projects</a>
-            <a href="/#contactme-section" onClick={()=>handleClick("contactme")}>Contact Me</a>
+            <a href="/#projects-section" onClick={()=>handleClick("projects")}>Projets</a>
+            <a href="/#contactme-section" onClick={()=>handleClick("contactme")}>Contactez moi</a>
             </HStack>
           </nav>
         </HStack>

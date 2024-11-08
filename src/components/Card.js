@@ -4,7 +4,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
-const Card = ({ title, description, imageSrc }) => {
+const Card = ({ title, description, imageSrc, duration }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleClick = () => {
@@ -23,10 +23,16 @@ const Card = ({ title, description, imageSrc }) => {
       {/* Image */}
       <Image src={imageSrc} alt={title} width="100%" maxHeight="200px" objectFit="cover" />
 
-      {/* Title */}
-      <Heading as="h3" size="md" mt={2}>
-        {title}
-      </Heading>
+      {/* Title and Duration */}
+      <VStack align="flex-start" spacing={1}>
+        <Heading as="h3" size="md" mt={2}>
+          {title}
+        </Heading>
+        {/* Display duration under the title */}
+        <Text fontSize="sm" color="gray.500">
+          {duration}
+        </Text>
+      </VStack>
 
       {/* Description */}
       <motion.div
@@ -38,10 +44,9 @@ const Card = ({ title, description, imageSrc }) => {
         <VStack mt={2} spacing={1} align="flex-start">
           {Array.isArray(description)
             ? description.map((item, index) => (
-                <HStack key={index} spacing={2}>
-                  <Image src={item.logo} alt={item.text} boxSize="20px" />
-                  <Text>{item.text}</Text>
-                </HStack>
+                <Text key={index} as="span" display="flex">
+                  • {item}
+                </Text>
               ))
             : <Text>{description}</Text>}
         </VStack>

@@ -4,60 +4,48 @@ import { Box, Heading } from "@chakra-ui/react";
 import Card from "./Card";
 
 const projects = [
+  
   {
-    title: "Annonces Immobilières",
+    title: "PROJET : Suivi en temps réel du pendule de Foucault",
     description: [
-      {
-        text: "Création d'un site Web en Express.js et MongoDB avec fonctionnalités CRUD. ('MongoDb + ExpressJs')",
-        logo: require("../images/express-mongoDb-logo.png"), // Replace with actual path to your logo
-      },
-      {
-        text: "Gestion des rôles utilisateurs et agents pour la création, modification et suppression d'annonces.",
-        logo: require("../images/express-logo.png"), // Replace with actual path to your logo
-
-      },
-      {
-        text: "Implémentation de l'authentification, gestion des sessions et sécurisation des routes. ('PassportJs')",
-        logo: require("../images/passport-logo.png"), // Replace with actual path to your logo
-      },
-      {
-        text: "Tests unitaires et fonctionnels pour garantir la stabilité du site.",
-        logo: require("../images/jest-logo.png"), // Replace with actual path to your logo
-      },
+      " Projet de suivi en temps réel du pendule de Foucault à l’Université Le Havre Normandie (février à juin 2024) avec trois caméras pour analyser les oscillations.",
+      " Installation équipée d'accéléromètres et de LEDs, mesurant l'angle, la vitesse, et l'amplitude du pendule.",
+      " Technologies : OpenCV pour le traitement vidéo, Matplotlib pour les graphiques en temps réel, Arduino pour la gestion des LEDs.",
+      " Objectif : démontrer la rotation de la Terre de façon visuelle et interactive."
     ],
-    getImageSrc: () => require("../images/photo1.jpg"),
+    getImageSrc: () => require("../images/pendule.JPG"),
   },
   {
-    title: "React Infinite Scroll",
-    description:
-      "A scrollable bottom sheet with virtualization support, native animations at 60 FPS and fully implemented in JS land 🔥️",
-    getImageSrc: () => require("../images/photo2.jpg"),
+    title: "PROJET : Système de Simulation de Base de Données",
+    description: [
+      " Développement d'un système de simulation de base de données distribuée avec réseau de files d'attente.",
+      " Gestion des requêtes utilisateurs via un coordinateur pour une répartition efficace sur les serveurs avec traitement probabilistique.",
+      " Technologies : JavaFX."
+    ],
+    getImageSrc: () => require("../images/mis.jpg"),
   },
   {
-    title: "Photo Gallery",
-    description:
-      "A one-stop shop for photographers to share and monetize their photos, allowing them to have a second source of income",
-    getImageSrc: () => require("../images/photo3.jpg"),
-  },
-  {
-    title: "Event Planner",
-    description:
-      "A mobile application for leisure seekers to discover unique events and activities in their city with a few taps",
-    getImageSrc: () => require("../images/photo4.jpg"),
+    title: "PROJET : Virus Compagnon",
+    description: [
+      " Développement d’un logiciel malveillant attaché à des fichiers exécutables légitimes pour exécuter du code viral lors du lancement.",
+      " Technologies : Langage C pour la création du code malveillant et l'injection dans des exécutables.",
+      " Objectif : Concevoir un virus capable de se propager automatiquement en s'exécutant lors du lancement du fichier hôte."
+    ],
+    getImageSrc: () => require("../images/virus.jpg"),
   },
 ];
 
 const ProjectsSection = () => {
   return (
     <FullScreenSection
-      backgroundColor="#14532d"
+      backgroundColor="#3730A3"
       isDarkBackground
       p={8}
       alignItems="flex-start"
       spacing={8}
     >
       <Heading as="h1" id="projects-section">
-        Featured Projects
+        Projets
       </Heading>
       <Box
         display="grid"
@@ -68,7 +56,7 @@ const ProjectsSection = () => {
           <Card
             key={project.title}
             title={project.title}
-            description={Array.isArray(project.description) ? project.description : [project.description]} // Ensure description is always an array
+            description={project.description}
             imageSrc={project.getImageSrc()}
           />
         ))}

@@ -53,13 +53,13 @@ const LandingSection = () => {
     >
       <VStack w="1024px" p={32} alignItems="flex-start">
         <Heading as="h1" id="contactme-section">
-          Contact me
+          Contactez moi
         </Heading>
         <Box p={6} rounded="md" w="100%">
           <form onSubmit={formik.handleSubmit}> 
             <VStack spacing={4}>
               <FormControl isInvalid={formik.touched.firstName && formik.errors.firstName}>
-                <FormLabel htmlFor="firstName">Name</FormLabel>
+                <FormLabel htmlFor="firstName">Nom & Prénom</FormLabel>
                 <Input
                   id="firstName"
                   name="firstName"
@@ -70,7 +70,7 @@ const LandingSection = () => {
                 <FormErrorMessage></FormErrorMessage>
               </FormControl>
               <FormControl isInvalid={formik.touched.email && formik.errors.email}>
-                <FormLabel htmlFor="email">Email Address</FormLabel>
+                <FormLabel htmlFor="email">Adresse mail</FormLabel>
                 <Input
                  id="email"
                  name="email"
@@ -82,7 +82,7 @@ const LandingSection = () => {
                 <FormErrorMessage> {formik.errors.comment} </FormErrorMessage>
               </FormControl>
               <FormControl>
-                <FormLabel htmlFor="type">Type of enquiry</FormLabel>
+                <FormLabel htmlFor="type">Type of demande</FormLabel>
                 <Select 
                       id="type"
                       name="type"
@@ -90,15 +90,15 @@ const LandingSection = () => {
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                 >
-                  <option value="hireMe">Freelance project proposal</option>
+                  <option value="hireMe">Proposition de projet freelance</option>
                   <option value="openSource">
-                    Open source consultancy session
+                  Session de consultation sur l'open source
                   </option>
-                  <option value="other">Other</option>
+                  <option value="other">Autre</option>
                 </Select>
               </FormControl>
               <FormControl isInvalid={formik.touched.comment && formik.errors.comment}>
-                <FormLabel htmlFor="comment">Your message</FormLabel>
+                <FormLabel htmlFor="comment">Votre message</FormLabel>
                 <Textarea
                   id="comment"
                   name="comment"
